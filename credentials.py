@@ -1,4 +1,4 @@
-class credentials:
+class Credentials:
   '''
   class that generates instances of user credentials
   '''
