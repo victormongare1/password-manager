@@ -22,4 +22,14 @@ def save_credentials(credentials):
     '''
     Function to save credentials
     '''
-    credentials.savecredentials() 
+    credentials.savecredentials()
+def del_user(user):
+    '''
+    Function to delete a user
+    '''
+    user.delete_user()
+def del_credentials(credentials):
+    '''
+    Function to delete a credentials
+    '''
+    credentials.delete_credentials()
