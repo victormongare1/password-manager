@@ -96,6 +96,15 @@ class TestUser(unittest.TestCase):
     test_user.saveuser()
     user_exists = User.user_exists("Test")
     self.assertTrue(user_exists)
+  def test_user_credentials(self):
+    '''
+    test to check if we can return a Boolean  if we cannot find the cresdentials.
+    '''
+    self.new_credentials.savecredentials()
+    test_credentials = Credentials("website","username","password")
+    test_credentials.savecredentials()
+    credentials_exists = Credentials.credentials_exists("website")
+    self.assertTrue(credentials_exists)  
   def test_display_credentials(self):
     '''
     method that returns a list of all credentials saved
