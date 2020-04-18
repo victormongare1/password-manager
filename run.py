@@ -48,3 +48,62 @@ def display_credentials():
     Function that returns all credentials
     '''
     return Credentials.display_credentials()
+def main():
+  print('''                            PASSWORD MANAGER         ''')
+  print('-'*80)
+  print('''                  Hey there! Welcome to password manager
+                             Lets get started''')
+  print("Please enter your username :")
+  username=input()
+  print("Enter your password :")
+  password=input()
+  while True:
+    print('''Use the following codes to navigate through the application
+    1.Use dc to display credentials.
+    2.Use cc to create credentials.
+    3.Use rm to remove credentials.
+    4.Use ex to exit the application''')
+    short_code=input().lower()
+    if short_code=="cc":
+      print("                           NEW CREDENTIALS")
+      print("-"*80)
+
+      print("Enter website name :")
+      website=input()
+      print("Enter website username :")
+      websiteusername=input()
+      print("Enter Website password :")
+      websitepassword=input()
+      save_credentials(create_credentials(website,websiteusername,websitepassword))
+      print('\n')
+      print(f'''You have added 
+      Website name :{website}
+      Username :{websiteusername}
+      Password :{websitepassword} to your credentials''')
+      print('\n')
+    elif short_code=="dc":
+      if display_credentials:
+        print("These are all your usernames and credentials")
+        print("\n")
+        counter= 0
+        for credential in display_credentials():
+          counter+=1
+          print(f"{counter}.{website}...{websiteusername}...{websitepassword}")
+          print("\n")
+      else:
+        print("\n")
+        print("You do not have any credentials ,type cc to add credentials")
+        print("\n")
+    elif short_code=="rm":
+      if del_credentials:
+        print("Enter website of credential you want to remove:")
+        deletecredential=input()
+        if check_existing_credentials(deletecredential):
+          sea
+    elif short_code=="ex":
+      print("You have exited from the app,bye............")
+      break
+    else:
+      print("COMMAND NOT FOUND,PLEASE USE THE PROVIDED CODES")
+if __name__ == "__main__":
+  main()
