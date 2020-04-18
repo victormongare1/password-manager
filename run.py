@@ -13,3 +13,13 @@ def create_credentials(website,username,password):
   '''
   new_credentials = Credentials(website,username,password)
   return new_credentials 
+def save_user(user):
+    '''
+    Function to save user
+    '''
+    user.saveuser()
+def save_credentials(credentials):
+    '''
+    Function to save credentials
+    '''
+    credentials.savecredentials() 
