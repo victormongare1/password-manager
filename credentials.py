@@ -3,9 +3,9 @@ class Credentials:
   class that generates instances of user credentials
   '''
   credentials_list=[]
-  def __init__(self,website,username,password):
+  def __init__(self,website,websiteusername,password):
     self.website = website
-    self.username = username
+    self.websiteusername = websiteusername
     self.password = password
   def savecredentials(self):
     '''

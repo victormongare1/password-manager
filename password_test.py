@@ -11,8 +11,9 @@ class TestUser(unittest.TestCase):
     '''
     Set up method to run before each test cases.
     '''
-    self.newuser= User("Victor","Mongare")
+    self.newuser= User("VictorMongare","vic123")
     self.new_credentials= Credentials("Gmail","vicmongz","12345678")
+  
   def tearDown(self):
     '''
     does clean up after each test case has run
@@ -23,10 +24,10 @@ class TestUser(unittest.TestCase):
     '''
     test_init test case to test if the object is initialized properly
     '''
-    self.assertEqual(self.newuser.firstname,"Victor")
-    self.assertEqual(self.newuser.lastname,"Mongare")
+    self.assertEqual(self.newuser.accountname,"VictorMongare")
+    self.assertEqual(self.newuser.accountpassword,"vic123")
     self.assertEqual(self.new_credentials.website,"Gmail")
-    self.assertEqual(self.new_credentials.username,"vicmongz") 
+    self.assertEqual(self.new_credentials.websiteusername,"vicmongz") 
     self.assertEqual(self.new_credentials.password,"12345678")
   def test_saveuser(self):
     '''
@@ -47,7 +48,7 @@ class TestUser(unittest.TestCase):
     objects to our user_list
     '''
     self.newuser.saveuser()
-    test_user = User("Test","user") 
+    test_user = User("Test","1234") 
     test_user.saveuser()
     self.assertEqual(len(User.user_list),2)
   def test_save_multiple_credentials(self):
@@ -64,7 +65,7 @@ class TestUser(unittest.TestCase):
     test_delete_user to test if we can remove a user from our user list
     '''
     self.newuser.saveuser()
-    test_user = User("Test","user")
+    test_user = User("Test","1234r")
     test_user.saveuser()
     self.newuser.delete_user()
     self.assertEqual(len(User.user_list),1)
@@ -77,5 +78,15 @@ class TestUser(unittest.TestCase):
     test_credentials.savecredentials()
     self.new_credentials.delete_credentials()
     self.assertEqual(len(Credentials.credentials_list),1)
+  def test_find_account(self):
+    '''
+    test to to determine whether a userinformation can be displayed
+    '''
+    self.newuser.saveuser()
+    test_user = User("Test","1234")
+    test_user.saveuser()
+    found_user= User.find_by_name("Test")
+    self.assertEqual(found_user.accountname,test_user.accountname)
+
 if __name__ == "__main__":
   unittest.main()
