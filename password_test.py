@@ -96,6 +96,11 @@ class TestUser(unittest.TestCase):
     test_user.saveuser()
     user_exists = User.user_exists("Test")
     self.assertTrue(user_exists)
+  def test_display_credentials(self):
+    '''
+    method that returns a list of all credentials saved
+    '''
+    self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
 if __name__ == "__main__":
   unittest.main()

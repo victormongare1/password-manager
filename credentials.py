@@ -17,3 +17,9 @@ class Credentials:
     delete_credentials method removes saved credentials from credentials list
     '''
     Credentials.credentials_list.remove(self)
+  @classmethod
+  def display_credentials(cls):
+    '''
+    method that returns the contact list
+    '''
+    return cls.credentials_list
