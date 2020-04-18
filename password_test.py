@@ -42,7 +42,7 @@ class TestUser(unittest.TestCase):
     self.new_credentials.savecredentials()
     self.assertEqual(len(Credentials.credentials_list),1)
   
-  def test_save_multiple_contact(self):
+  def test_save_multiple_user(self):
     '''
     test_save_multiple_users to check if we can save multiple user
     objects to our user_list

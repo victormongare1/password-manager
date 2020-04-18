@@ -33,3 +33,18 @@ def del_credentials(credentials):
     Function to delete a credentials
     '''
     credentials.delete_credentials()
+def check_existing_credentials(website):
+    '''
+    Function that check if a credential exists with that website and return a Boolean
+    '''
+    return Credentials.credentials_exists(website)
+def find_user(name):
+    '''
+    Function that finds a contact by number and returns the contact
+    '''
+    return User.find_by_name(name)
+def display_credentials():
+    '''
+    Function that returns all credentials
+    '''
+    return Credentials.display_credentials()
