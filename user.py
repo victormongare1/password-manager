@@ -6,4 +6,8 @@ class User:
   def __init__(self,firstname,lastname):
     self.firstname = firstname
     self.lastname = lastname
-
+  def saveuser(self):
+    '''
+    method that saves user object to user list
+    '''
+    User.user_list.append(self)
