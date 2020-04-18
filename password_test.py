@@ -15,9 +15,10 @@ class TestUser(unittest.TestCase):
     self.new_credentials= Credentials("Gmail","vicmongz","12345678")
   def tearDown(self):
     '''
-
+    does clean up after each test case has run
     '''
-
+    User.user_list=[]
+    Credentials.credentials_list=[]
   def test_init(self):
     '''
     test_init test case to test if the object is initialized properly
@@ -48,7 +49,7 @@ class TestUser(unittest.TestCase):
     self.newuser.saveuser()
     test_user = User("Test","contact") 
     test_user.saveuser()
-    self.assertEqual(len(User.saveuser),2)
+    self.assertEqual(len(User.user_list),2)
   def test_save_multiple_credentials(self):
     '''
     test_save_multiple_credentials to check if we can save multiple credentilas
