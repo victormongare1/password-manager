@@ -13,13 +13,20 @@ This is an application that allows a user to be able to manage passowrds from al
 
 ## Setup/Installation Requirements
 You can gain access to the code for the web landing page by forking from my github repository named quote .You can then make an offline copy by:
-    *copying the url from my github repository.
-    *typing git clone in the terminal followed by pasting the url
+*  copying the url from my github repository.
+*  typing git clone in the terminal followed by pasting the url
+To run the program:
+*  open the directory in terminal and type :($ chmod +x run.py) to make it   executable
+* open the progra using ($ ./run.py )and enjoy
 ## Known Bugs
 
 ## Technologies Used
+Python has been the main programming language used .The use of python unittest has been utilised in the making of this application.
+There was utilisation of python functions and methods to create the functionality of the application and running it
+There was use of git during the development process whereby regular additions and 
+commits were made throughout the whole project.Git was also used in the pushing of code to github
 ## Support and contact details
-If you run into any issues or have questions, ideas or concerns  contact me at vicmongz254@gmail.com/0792651899 or make a contribution to the code.
+If you run into any issues or have questions, ideas or concerns  contact me at vicmongz254@gmail.com/0792651899 or make a contribution to the code at my github  account - victormongare1.
 ### License
 *{MIT License
 
