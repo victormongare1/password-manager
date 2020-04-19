@@ -33,7 +33,7 @@ def del_credentials(credentials):
     '''
     Function to delete a credentials
     '''
-    credentials.delete_credentials(credentials)
+    credentials.delete_credentials()
 def check_existing_credentials(website):
     '''
     Function that check if a credential exists with that website and return a Boolean
@@ -54,30 +54,22 @@ def main():
   print('-'*80)
   print('''                  Hey there! Welcome to password manager
                              Lets get started''')
-  #print("Please enter your username :")
-  #username=input()
-  #print("Enter your password :")
-  #password=input()
-  while True:
-    user={}
-    status=""
-    def newUser():
-      print("create username")
-      newlogin=input()
-      if newlogin in user:
-        print("username already exists")
-      else:
-        print("Create login password")
-        newpassword=input()
-        user[newlogin]=newpassword
-        print("Account created")
-    
-
-    print("Are you a registered user ? y/n type q to quit")
-    status=input()
-      
-        
-    if status == "y":
+  print("Are you a registered user ? y/n type q to quit")   
+  status="" 
+  status=input()   
+  user={}
+  
+  def newUser():
+    print("create username")
+    newlogin=input()
+    if newlogin in user:
+      print("username already exists")
+    else:
+      print("Create login password")
+      newpassword=input()
+      user[newlogin]=newpassword
+      print("Account created")                   
+  if status == "y":
       print("Enter your username")
       login=input()
       print("Enter password")
@@ -86,16 +78,14 @@ def main():
         print("login successful")
       else :
         print("wrong password or user does not exist")
-        break
-    elif status == "n":
+  elif status == "n":
       newUser()
-    else  :
-      print("exit")
-      break
+  else  :
+    print("exit")
+      
 
-        
-  
- 
+  while True:
+    
     print('''Use the following codes to navigate through the application
       1.Use dc to display credentials.
       2.Use cc to create credentials.
@@ -135,20 +125,16 @@ def main():
         print("You do not have any credentials ,type cc to add credentials")
         print("\n")
     elif short_code=="rm":
-      if del_credentials:
         print("Enter website of credential you want to remove:")
         credentials=input()
-        if check_existing_credentials(credentials):
-          for credential in del_credentials(credentials):
-            print(f"credentials for website {credentials} have been deleted")
-        else:
-          print("credential did not exist")
+        cred=check_existing_credentials(credentials)
+        del_credentials(cred)
+        print(f"credentials for website {credentials} have been removed")
+  
     elif short_code=="ex":
       print("You have exited from the app,bye............")
       break
-    
     else:
       print("COMMAND NOT FOUND,PLEASE USE THE PROVIDED CODES")     
-      
 if __name__ == "__main__":
   main()
