@@ -19,7 +19,8 @@ To run the program:
 *  open the directory in terminal and type :($ chmod +x run.py) to make it   executable
 * open the progra using ($ ./run.py )and enjoy
 ## Known Bugs
-
+* the program cannot yet generate a random password
+* the program  can display an error message before successful login even if account name and password are correct
 ## Technologies Used
 Python has been the main programming language used .The use of python unittest has been utilised in the making of this application.
 There was utilisation of python functions and methods to create the functionality of the application and running it

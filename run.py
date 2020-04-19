@@ -57,15 +57,15 @@ def main():
   print("Are you a registered user ? y/n type q to quit")   
   status="" 
   status=input()   
-  user={'name':'',"password":""}
+  
   
   def newUser():
-    print("create username")
-    newlogin=input()
-    print("create password")
-    newpassword=input()
+      print("create username")
+      newlogin=input()
+      print("create password")
+      newpassword=input()
     save_user(create_user(newlogin,newpassword))
-    with open('account1.csv','w') as f:
+    with open('account1.csv','a') as f:
       writer=csv.writer(f)
       writer.writerow([f"{newlogin}",f"{newpassword}"])    
     print ("account created")             
@@ -79,7 +79,6 @@ def main():
       for account in reader:
         if login in account[0] and password in account[1]:
           print("login successful")
-    
           while True:
           
             print('''Use the following codes to navigate through the application
@@ -190,6 +189,6 @@ def main():
         else:
           print("COMMAND NOT FOUND,PLEASE USE THE PROVIDED CODES")
   else  :
-    print("exit")   
+    print("exit -invalid format")   
 if __name__ == "__main__":
   main()
