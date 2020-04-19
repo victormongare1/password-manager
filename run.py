@@ -113,7 +113,7 @@ def main():
       print('\n')
     elif short_code=="dc":
       if display_credentials:
-        print("These are all your usernames and credentials")
+        print("These are all your usernames and credentials :" )
         print("\n")
         counter= 0
         for credential in display_credentials():
@@ -127,9 +127,9 @@ def main():
     elif short_code=="rm":
         print("Enter website of credential you want to remove:")
         credentials=input()
-        cred=check_existing_credentials(credentials)
+        cred  = check_existing_credentials(credentials)
         del_credentials(cred)
-        print(f"credentials for website {credentials} have been removed")
+        print("credentials for website "f"{credentials}"" have been removed")
   
     elif short_code=="ex":
       print("You have exited from the app,bye............")
