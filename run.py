@@ -2,6 +2,7 @@
 from user import User
 from credentials import Credentials
 import csv
+import random
 def create_user(accountname,accountpassword):
   '''
   function to create a new contact 
@@ -60,10 +61,10 @@ def main():
   
   
   def newUser():
-      print("create username")
-      newlogin=input()
-      print("create password")
-      newpassword=input()
+    print("create username")
+    newlogin=input()
+    print("create password")
+    newpassword=input()
     save_user(create_user(newlogin,newpassword))
     with open('account1.csv','a') as f:
       writer=csv.writer(f)
@@ -142,9 +143,11 @@ def main():
           1.Use dc to display credentials.
           2.Use cc to create credentials with your own passwords.
           3.Use rm to remove credentials.
-          4.Use ex to exit the application''')
+          4.Use ex to exit the application
+          5.Use g to create credentials with random password''')
         short_code=input().lower()  
         if short_code=="cc": 
+          print('\n')
           print("                           NEW CREDENTIALS")
           print("-"*80)
           print("Enter website name :")
@@ -159,12 +162,13 @@ def main():
           Website name :{website}
           Username :{websiteusername}
           Password :{websitepassword} to your credentials''')
-          with open('account1.csv','a') as f:
+          with open('cred.csv','a') as f:
             writer=csv.writer(f)
             writer.writerow([f'{website}',f'{websiteusername}',f'{websitepassword}'])
           print('\n')
         elif short_code=="dc":
           if display_credentials:
+            print('\n')
             print("These are all your usernames and credentials :" )
             print("\n")
             counter= 0
@@ -177,18 +181,35 @@ def main():
             print("You do not have any credentials ,type cc to add credentials")
             print("\n")
         elif short_code=="rm":
+            print('\n')
             print("Enter website of credential you want to remove:")
             credentials=input()
             cred  = check_existing_credentials(credentials)
             del_credentials(cred)
             print("credentials for website "f"{credentials}"" have been removed")
-      
+        elif short_code=="g":
+          print('\n')
+          print("                           NEW CREDENTIALS")
+          print("-"*80)
+          print("Enter website name :")
+          website=input()
+          print("Enter website username :")
+          websiteusername=input()
+          websitepassword= random.randint(1000,10000000)
+          save_credentials(create_credentials(website,websiteusername,websitepassword))
+          print('\n')
+          print(f'''You have added 
+          Website name :{website}
+          Username :{websiteusername}
+          Password :{websitepassword} to your credentials''')
+          print("\n")
         elif short_code=="ex":
+          print("\n")
           print("You have exited from the app,bye............")
           break
         else:
           print("COMMAND NOT FOUND,PLEASE USE THE PROVIDED CODES")
   else  :
-    print("exit -invalid format")   
+    print("exit -invalid format,run app again")   
 if __name__ == "__main__":
   main()
